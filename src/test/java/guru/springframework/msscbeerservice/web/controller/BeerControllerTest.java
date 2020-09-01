@@ -24,7 +24,6 @@ class BeerControllerTest {
 
     @Test
     void getBeerById() throws Exception {
-
         mockMvc.perform(get("/api/v1/beer/" + UUID.randomUUID().toString()).accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
@@ -32,7 +31,6 @@ class BeerControllerTest {
 
     @Test
     void saveNewBeer() throws Exception {
-
         BeerDto beerDto = BeerDto.builder().build();
         String beerDtoJson = objectMapper.writeValueAsString(beerDto);
 
@@ -52,4 +50,5 @@ class BeerControllerTest {
                 .content(beerDtoJson))
                 .andExpect(status().isNoContent());
     }
+
 }
